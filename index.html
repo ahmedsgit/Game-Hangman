@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="resources/style.css">
+    <title>Hangman</title>
+</head>
+
+<body>
+    <video autoplay muted loop id="myVideo">
+        <source src="resources/video/hangman.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+    <div class="container">
+        <div class="introPage" id="introPage">
+            <h1>Hangman</h1>
+            <p>Find the hidden word - Enter a letter</p>
+            <div id="button">
+                <button id="singlePlayer">Single Player</button>
+                <button id="multiplePlayer">Multi Player</button>
+            </div>
+        </div>
+        <div class="single-player" id="single-player-page">
+            <button class="home"><i class="fa fa-home" aria-hidden="true"></i></button>
+            <p>Pick a Category</p>
+            <div id="category">
+                <div id="category1">
+                    <button id="person">Names</button>
+                    <button id="animal">Animals</button>
+                </div>
+                <div id="category2">
+                    <button id="movies">Movies</button>
+                    <button id="fruits">Fruits</button>
+                </div>
+            </div>
+        </div>
+        <div class="multiple-player" id="multiple-player-page">
+            <button class="home"><i class="fa fa-home" aria-hidden="true"></i></button>
+            <p>Enter your own word to challenge your friend!</p>
+            <div>
+                <input id="input" type="text" placeholder="Write a word">
+                <input id="submit" type="submit" value="Challenge">
+            </div>
+
+        </div>
+    </div>
+
+    <script src="resources/script.js"></script>
+</body>
+
+</html>
