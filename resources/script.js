@@ -1,50 +1,33 @@
-let singlePlayerBtn = document.getElementById('singlePlayer');
-let multiplePlayerBtn = document.getElementById('multiplePlayer');
-let home = document.querySelector('.home');
-let introP = document.getElementById('introPage');
-let singlePlayerPage = document.getElementById('single-player-page');
-let multiplePlayerPage = document.getElementById('multiple-player-page');
+const wordEl = document.getElementById('word');
+const wrongLettersEl = document.getElementById('wrong-letters');
+const playBtn = document.getElementById('play-button');
+const popup = document.getElementById('popup-container');
+const finalMessage = document.getElementById('final-message');
+const notification = document.getElementById('notification-container');
 
-// form
-let input = document.getElementById('input')
-let submitBtn = document.getElementById('submit');
+const figureParts = document.querySelectorAll('.figure-part');
+const words = ['application', 'programming', 'interface', 'wizard'];
 
+let selectedWord = words[Math.floor(Math.random() * words.length)];
 
-function clickAudio() {
-    var audio = new Audio('../resources/audios/click.mp3');
-    audio.play();
+const correctLetters = ['w', 'i', 'z', 'a', 'r', 'd'];
+const wrongLetters = [];
+
+//Show Hidden word
+function displayWord() {
+    wordEl.innerHTML = `
+    ${selectedWord
+            .split('')
+            .map(letter=>`
+                <span class="letter">${correctLetters.includes(letter) ? letter: ''}</span>
+            `).join('')}`;
+
+    const innerWord = wordEl.innerText.replace(/\n/g, '');
+
+    if (innerWord === selectedWord) {
+        finalMessage.innerText = 'Congratulations! You won! 😃';
+        popup.style.display = 'flex';
+    }
 }
 
-//initially all page will be invisible exp intro page
-singlePlayerPage.style.display = 'none';
-multiplePlayerPage.style.display = 'none';
-
-function introPage() {
-    clickAudio();
-    singlePlayerPage.style.display = "none";
-    multiplePlayerPage.style.display = "none";
-    introP.style.display = "block";
-}
-
-function singlePlayer() {
-    clickAudio();
-    introP.style.display = "none";
-    singlePlayerPage.style.display = "block";
-}
-
-function multiplePlayer() {
-    clickAudio();
-    introP.style.display = "none";
-    multiplePlayerPage.style.display = "block";
-}
-
-function submitValue() {
-    console.log(input.value);
-}
-
-
-//Events
-singlePlayerBtn.addEventListener('click', singlePlayer);
-multiplePlayerBtn.addEventListener('click', multiplePlayer);
-home.addEventListener('click', introPage);
-submitBtn.addEventListener('click', submitValue);
+displayWord();
