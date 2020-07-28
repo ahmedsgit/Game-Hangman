@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
     <link rel="stylesheet" href="resources/style.css">
     <title>Hangman</title>
 
@@ -35,11 +36,28 @@
         </div>
         <div class="word" id="word"> </div>
     </div>
+    <!-- Single or Multiple Player Popup -->
+    <div class="player" id="player">
+        <div class="player-popup" id="player-popup">
+            <h2>Hangman</h2>
+            <p>Single or Multiple Player?</p>
+            <button class="btn" id="single-player">Single Player</button>
+            <button class="btn" id="multiple-player">Multiple Player</button>
+        </div>
+        <div class="single-player-popup" id="single-player-popup">
+            <h2>Hangman</h2>
+            <p>Choose a category</p>
+            <button class="btn" id="person">Person</button>
+            <button class="btn" id="animal">Animals</button><br>
+            <button class="btn" id="fruits">Fruits</button>
+            <button class="btn" id="sports">Sports</button>
+        </div>
+    </div>
     <!-- Container for final message -->
     <div class="popup-container" id="popup-container">
         <div class="popup">
             <h2 id="final-message"></h2>
-            <button id="play-button">Play Again</button>
+            <button class="btn" id="play-button">Play Again</button>
         </div>
     </div>
 

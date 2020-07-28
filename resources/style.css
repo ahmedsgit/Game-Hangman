@@ -1,9 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Dancing+Script:wght@700&family=Lato&display=swap');
+
 * {
     box-sizing: border-box;
 }
 
+:root {
+    --background-color: #34495e;
+    --popup-duration: 0.3s;
+}
+
 body {
-    background-color: #34495e;
+    background-color: var(--background-color);
     color: #fff;
     font-family: Arial, Helvetica, sans-serif;
     display: flex;
@@ -73,6 +80,59 @@ h1 {
     width: 20px;
 }
 
+/* Player popup Window */
+.player {
+    background-color: var(--background-color);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.player-popup,
+.single-player-popup {
+    background: #2587a7;
+    box-shadow: 0 15px 10px 3px rgba(0, 0, 0, 0.2);
+    padding: 20px 50px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.single-player-popup {
+    padding: 20px 100px;
+    display: none;
+    animation-name: popup-window;
+    animation-duration: var(--popup-duration);
+}
+
+.player-popup h2,
+.single-player-popup h2 {
+    font-family: 'Dancing Script', cursive, sans-serif;
+    font-size: 30px;
+}
+
+.player-popup p,
+.single-player-popup p {
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+}
+
+.player-popup button,
+.single-player-popup button {
+    cursor: pointer;
+    background-color: #fff;
+    border: 0;
+    margin: 0 10px 10px;
+    font-size: 20px;
+    padding: 12px 20px;
+    color: #2587a7;
+    border-radius: 5px;
+}
+
 .popup-container {
     background-color: rgba(0, 0, 0, 0.3);
     position: fixed;
@@ -105,11 +165,15 @@ h1 {
     border-radius: 5px;
 }
 
-.popup button:active {
+.popup button:active,
+.player-popup button:active,
+.single-player-popup button:active {
     transform: scale(0.98);
 }
 
-.popup button:focus {
+.popup button:focus,
+.player-popup button:focus,
+.single-player-popup button:focus {
     outline: 0;
 }
 
@@ -128,4 +192,14 @@ h1 {
 
 .notification-container.show {
     transform: translateY(-50px);
+}
+
+@keyframes popup-window {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
